@@ -3,7 +3,7 @@ FROM registry.aliyuncs.com/sweetspot/nodejs-template:latest
 MAINTAINER Fnsy <vs429365799@gmail.com>
 
 ADD sources.list /etc/apt/sources.list
-COPY . /home/
+COPY project /home/
 
 WORKDIR /home/
 
