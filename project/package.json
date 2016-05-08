@@ -6,7 +6,7 @@
   "scripts": {
     "start": "./node_modules/.bin/nodemon",
     "build": "babel src --watch --out-dir build",
-    "production": "node build/app.js",
+    "production": "pm2 start build/app.js",
     "test": "./node_modules/.bin/mocha"
   },
   "author": "",
