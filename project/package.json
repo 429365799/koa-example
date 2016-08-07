@@ -28,5 +28,8 @@
     "mocha": "^2.4.5",
     "nodemon": "^1.9.2",
     "supertest": "^1.2.0"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   }
 }
