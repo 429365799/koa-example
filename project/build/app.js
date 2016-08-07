@@ -52,15 +52,15 @@ app.use(route.get('/login/doLogin', _login2.default.doLogin).routes());
 app.use(route.allowedMethods());
 
 // Serve static files
-app.use((0, _koaStatic2.default)(_path2.default.join(__dirname + '/public')));
+app.use((0, _koaStatic2.default)(_path2.default.join(__dirname + '/../public/')));
 
 // Compress
 app.use((0, _koaCompress2.default)());
 
 // listen port
 if (!module.parent) {
-  app.listen(3000);
-  console.log('listening on port 3000');
+  app.listen(3001);
+  console.log('listening on port 3001');
 }
 
 // error handler
