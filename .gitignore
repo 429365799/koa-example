@@ -1,5 +1,5 @@
 node_modules/
 npm-debug.log
-.gitignore.swp
+*.swp
 .DS_Store
 .svn
