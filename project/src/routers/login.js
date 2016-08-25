@@ -1,13 +1,18 @@
+import request from 'superagent'
+
 const Login = {
 
-  // 登录
+  // Login
   async doLogin(ctx, next) {
+    request.get('http://localhost:3001/login/doLogout').end(res => {
+      console.log(res);
+    })
     ctx.res.end('Hello!');
   },
 
-  // 登出
-  async doLogout() {
-    ctx.res.end('Log out!');
+  // Logout
+  async doLogout(ctx, next) {
+    ctx.res.end('Log out!!!');
   }
 };
 
