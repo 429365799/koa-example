@@ -9,7 +9,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 const Login = {
 
   // 登录
-
   doLogin: function doLogin(ctx, next) {
     return _asyncToGenerator(function* () {
       ctx.res.end('Hello!');
@@ -18,9 +17,9 @@ const Login = {
 
 
   // 登出
-  doLoginup: function doLoginup() {
+  doLogout: function doLogout() {
     return _asyncToGenerator(function* () {
-      ctx.res.end('Log up!');
+      ctx.res.end('Log out!');
     })();
   }
 };

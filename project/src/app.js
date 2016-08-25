@@ -24,6 +24,7 @@ app.use(bodyparser({
 
 // Routers
 app.use(route.get('/login/doLogin', Login.doLogin).routes());
+app.use(route.get('/login/doLogout', Login.doLogout).routes());
 app.use(route.allowedMethods());
 
 // Serve static files

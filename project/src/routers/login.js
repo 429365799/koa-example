@@ -6,8 +6,8 @@ const Login = {
   },
 
   // 登出
-  async doLoginup() {
-    ctx.res.end('Log up!');
+  async doLogout() {
+    ctx.res.end('Log out!');
   }
 };
 

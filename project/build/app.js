@@ -24,6 +24,10 @@ var _koaLogger = require('koa-logger');
 
 var _koaLogger2 = _interopRequireDefault(_koaLogger);
 
+var _koaConvert = require('koa-convert');
+
+var _koaConvert2 = _interopRequireDefault(_koaConvert);
+
 var _koaRouter = require('koa-router');
 
 var _koaRouter2 = _interopRequireDefault(_koaRouter);
@@ -38,7 +42,7 @@ const app = new _koa2.default();
 const route = (0, _koaRouter2.default)();
 
 // Logger
-app.use((0, _koaLogger2.default)());
+app.use((0, _koaConvert2.default)((0, _koaLogger2.default)()));
 
 // Bodyparser
 app.use((0, _koaBodyparser2.default)({
@@ -49,6 +53,7 @@ app.use((0, _koaBodyparser2.default)({
 
 // Routers
 app.use(route.get('/login/doLogin', _login2.default.doLogin).routes());
+app.use(route.get('/login/doLogout', _login2.default.doLogout).routes());
 app.use(route.allowedMethods());
 
 // Serve static files
@@ -65,7 +70,7 @@ if (!module.parent) {
 
 // error handler
 app.on('error', (err, ctx) => {
-  log.error('server error', err, ctx);
+  console.error('server error', err, ctx);
 });
 
 // export default app;

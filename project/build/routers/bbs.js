@@ -6,14 +6,14 @@ const Router = require('koa-router');
 const route = new Router({ prefix: '/bbs' });
 
 route.get('/bbslist', (() => {
-  var ref = _asyncToGenerator(function* (ctx, next) {
+  var _ref = _asyncToGenerator(function* (ctx, next) {
     // ...
     console.log(ctx.request.params);
     ctx.res.end('List!');
   });
 
   return function (_x, _x2) {
-    return ref.apply(this, arguments);
+    return _ref.apply(this, arguments);
   };
 })());
 
