@@ -52,8 +52,9 @@ app.use((0, _koaBodyparser2.default)({
 }));
 
 // Routers
-app.use(route.get('/login/doLogin', _login2.default.doLogin).routes());
-app.use(route.get('/login/doLogout', _login2.default.doLogout).routes());
+route.get('/login/doLogin', _login2.default.doLogin);
+route.get('/login/doLogout', _login2.default.doLogout);
+app.use(route.routes());
 app.use(route.allowedMethods());
 
 // Serve static files

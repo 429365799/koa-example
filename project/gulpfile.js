@@ -20,7 +20,7 @@ gulp.task("builder", () => {
 });
 
 // start nodemon server
-gulp.task("server", () => {
+gulp.task("server", ["builder"], () => {
     return nodemon({
         script:　"./build/app.js",
         ignore: [
