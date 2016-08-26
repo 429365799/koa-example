@@ -22,14 +22,16 @@ app.use(bodyparser({
   }
 }));
 
-// Routers
-route.get('/login/doLogin', Login.doLogin);
-route.get('/login/doLogout', Login.doLogout);
-app.use(route.routes());
-app.use(route.allowedMethods());
-
 // Serve static files
 app.use(serve(path.join(__dirname + '/../public/')));
+
+// Routers
+route.get('login', '/login/doLogin', Login.doLogin);
+route.get('/login/doLogout', Login.doLogout);
+app.use(route.routes());
+app.use(route.allowedMethods({
+  throw: true
+}));
 
 // Compress
 app.use(compress());
