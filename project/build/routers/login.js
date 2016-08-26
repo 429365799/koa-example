@@ -11,6 +11,8 @@ const Login = {
   // Login
   doLogin: function doLogin(ctx, next) {
     return _asyncToGenerator(function* () {
+      console.log(ctx.req.body);
+
       ctx.body = { a: 100 };
     })();
   },

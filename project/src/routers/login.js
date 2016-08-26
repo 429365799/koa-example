@@ -2,6 +2,9 @@ const Login = {
 
   // Login
   async doLogin(ctx, next) {
+    console.log(ctx.req.body);
+    
+
     ctx.body = {a: 100}
   },
 

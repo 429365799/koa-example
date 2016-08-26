@@ -55,8 +55,9 @@ app.use((0, _koaBodyparser2.default)({
 app.use((0, _koaStatic2.default)(_path2.default.join(__dirname + '/../public/')));
 
 // Routers
-route.get('login', '/login/doLogin', _login2.default.doLogin);
+route.post('/login/doLogin', _login2.default.doLogin);
 route.get('/login/doLogout', _login2.default.doLogout);
+
 app.use(route.routes());
 app.use(route.allowedMethods({
   throw: true

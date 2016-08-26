@@ -26,8 +26,9 @@ app.use(bodyparser({
 app.use(serve(path.join(__dirname + '/../public/')));
 
 // Routers
-route.get('login', '/login/doLogin', Login.doLogin);
+route.post('/login/doLogin', Login.doLogin);
 route.get('/login/doLogout', Login.doLogout);
+
 app.use(route.routes());
 app.use(route.allowedMethods({
   throw: true
