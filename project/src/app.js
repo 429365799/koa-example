@@ -4,16 +4,20 @@ import bodyparser from 'koa-bodyparser';
 import path from 'path';
 import serve from 'koa-static';
 import logger from 'koa-logger';
-import convert from 'koa-convert';
+import onerror from 'koa-onerror';
 
 import Router from 'koa-router';
+import serverRender from './routers/serverRender.js'
 import Login from './routers/login.js';
 
 const app = new Koa();
 const route = Router();
 
+// print error to html
+onerror(app);
+
 // Logger
-app.use(convert(logger()));
+app.use(logger());
 
 // Bodyparser
 app.use(bodyparser({
@@ -23,10 +27,11 @@ app.use(bodyparser({
 }));
 
 // Serve static files
-app.use(serve(path.join(__dirname + '/../public/')));
+// app.use(serve(path.join(__dirname + '/../public/')));
 
 // Routers
-route.post('/login/doLogin', Login.doLogin);
+route.get('/', serverRender);
+route.get('/login/doLogin', Login.doLogin);
 route.get('/login/doLogout', Login.doLogout);
 
 app.use(route.routes());

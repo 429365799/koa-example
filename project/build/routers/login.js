@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -11,9 +11,10 @@ const Login = {
   // Login
   doLogin: function doLogin(ctx, next) {
     return _asyncToGenerator(function* () {
-      console.log(ctx.req.body);
-
       ctx.body = { a: 100 };
+
+      const view = Number(ctx.cookies.get('view')) || 1;
+      ctx.cookies.set('view', view + 1);
     })();
   },
 

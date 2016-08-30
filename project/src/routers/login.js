@@ -2,10 +2,10 @@ const Login = {
 
   // Login
   async doLogin(ctx, next) {
-    console.log(ctx.req.body);
-    
-
     ctx.body = {a: 100}
+
+    const view = Number(ctx.cookies.get('view')) || 1
+    ctx.cookies.set('view', view + 1)
   },
 
   // Logout
@@ -14,4 +14,4 @@ const Login = {
   }
 };
 
-export default Login;
+export default Login

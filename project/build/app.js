@@ -24,13 +24,17 @@ var _koaLogger = require('koa-logger');
 
 var _koaLogger2 = _interopRequireDefault(_koaLogger);
 
-var _koaConvert = require('koa-convert');
+var _koaOnerror = require('koa-onerror');
 
-var _koaConvert2 = _interopRequireDefault(_koaConvert);
+var _koaOnerror2 = _interopRequireDefault(_koaOnerror);
 
 var _koaRouter = require('koa-router');
 
 var _koaRouter2 = _interopRequireDefault(_koaRouter);
+
+var _serverRender = require('./routers/serverRender.js');
+
+var _serverRender2 = _interopRequireDefault(_serverRender);
 
 var _login = require('./routers/login.js');
 
@@ -41,8 +45,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const app = new _koa2.default();
 const route = (0, _koaRouter2.default)();
 
+// print error to html
+(0, _koaOnerror2.default)(app);
+
 // Logger
-app.use((0, _koaConvert2.default)((0, _koaLogger2.default)()));
+app.use((0, _koaLogger2.default)());
 
 // Bodyparser
 app.use((0, _koaBodyparser2.default)({
@@ -52,10 +59,11 @@ app.use((0, _koaBodyparser2.default)({
 }));
 
 // Serve static files
-app.use((0, _koaStatic2.default)(_path2.default.join(__dirname + '/../public/')));
+// app.use(serve(path.join(__dirname + '/../public/')));
 
 // Routers
-route.post('/login/doLogin', _login2.default.doLogin);
+route.get('/', _serverRender2.default);
+route.get('/login/doLogin', _login2.default.doLogin);
 route.get('/login/doLogout', _login2.default.doLogout);
 
 app.use(route.routes());
